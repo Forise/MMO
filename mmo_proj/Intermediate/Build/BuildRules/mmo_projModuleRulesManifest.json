@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Projects\\Unreal\\MMO\\mmo_proj\\Source\\mmo_proj\\mmo_proj.Build.cs",
+		"C:\\Projects\\Unreal\\MMO\\mmo_proj\\Source\\mmo_proj.Target.cs",
+		"C:\\Projects\\Unreal\\MMO\\mmo_proj\\Source\\mmo_projEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}
