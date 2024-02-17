@@ -3,18 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/Headers/MMO_CharacterMovementComponent.h"
+#include "GameFramework/Character.h"
 #include "MMO_BaseCharacter.generated.h"
 
 UCLASS()
-class MMO_PROJ_API AMMO_BaseCharacter : public APawn
+class MMO_PROJ_API AMMO_BaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-public:
-
 protected:
-	AMMO_BaseCharacter(const FObjectInitializer &Object);
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Enchanced Input")
+	class UInputMappingContext* InputMapping;
+	
+	AMMO_BaseCharacter();
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -24,7 +25,4 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Movement")
-	UMMO_CharacterMovementComponent* CharacterMovementComponent;
 };

@@ -25,5 +25,5 @@ public:
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
-	virtual void MoveCharacter(APawn* character);
+	virtual void MoveCharacter(ACharacter* character);
 };

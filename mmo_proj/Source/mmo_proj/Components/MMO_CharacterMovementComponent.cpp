@@ -33,7 +33,7 @@ void UMMO_CharacterMovementComponent::TickComponent(float DeltaTime, ELevelTick 
 	
 }
 
-void UMMO_CharacterMovementComponent::MoveCharacter(APawn* character)
+void UMMO_CharacterMovementComponent::MoveCharacter(ACharacter* character)
 {
 	FVector v = FVector(1);
 	character->AddMovementInput(v);
