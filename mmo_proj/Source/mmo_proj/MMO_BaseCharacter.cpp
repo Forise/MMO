@@ -4,12 +4,16 @@
 #include "MMO_BaseCharacter.h"
 #include "InputMappingContext.h"
 #include "EnhancedInputSubsystems.h"
+#include "Components/Headers/MMO_CharacterHealthComponent.h"
 
 // Sets default values
 AMMO_BaseCharacter::AMMO_BaseCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	HealthComponent = CreateDefaultSubobject<UMMO_CharacterHealthComponent>("Health Component");
+
 }
 
 // Called when the game starts or when spawned

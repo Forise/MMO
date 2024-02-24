@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "MMO_BaseCharacter.generated.h"
 
+class UMMO_CharacterHealthComponent;
+
 UCLASS()
 class MMO_PROJ_API AMMO_BaseCharacter : public ACharacter
 {
@@ -22,6 +24,9 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Character")
+	UMMO_CharacterHealthComponent* HealthComponent;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

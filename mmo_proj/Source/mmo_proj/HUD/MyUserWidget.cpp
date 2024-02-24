@@ -3,18 +3,20 @@
 
 #include "Headers/MyUserWidget.h"
 
-/*
+#include "mmo_proj/Components/Headers/MMO_CharacterHealthComponent.h"
+
+
 float UMyUserWidget::GetHealthPercent(AActor* Player) const
 {
 	//Player = GetOwningPlayerPawn();
 	if (!Player)return 0.0f;
 
-	const auto Component = Player->GetComponentByClass(USMHealthComponent::StaticClass());
-	const auto HealthComponent = Cast<USMHealthComponent>(Component);
+	const auto Component = Player->GetComponentByClass(UMMO_CharacterHealthComponent::StaticClass());
+	const auto HealthComponent = Cast<UMMO_CharacterHealthComponent>(Component);
 
 	if(!HealthComponent) return 0.0f;
 	return HealthComponent->GetHealthPercent();
-}*/
+}
 /*
 AActor* UMyUserWidget::GetActorTarget()
 {
@@ -29,12 +31,6 @@ AActor* UMyUserWidget::GetActorTarget()
 }
 */
 
-
-
-float UMyUserWidget::GetHealthPercent(AActor* Player) const
-{
-	return 0;
-}
 
 AActor* UMyUserWidget::GetActorTarget()
 {
