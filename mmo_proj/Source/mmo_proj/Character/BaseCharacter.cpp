@@ -62,6 +62,24 @@ void ABaseCharacter::Jump()
 	Super::Jump();
 }
 
+void ABaseCharacter::Sprint()
+{
+	if(!IsSprinting)
+	{
+		GetCharacterMovement()->MaxWalkSpeed += SprintAdditionalSpeed;
+		IsSprinting = true;
+	}
+}
+
+void ABaseCharacter::UnSprint()
+{
+	if(IsSprinting)
+	{
+		GetCharacterMovement()->MaxWalkSpeed -= SprintAdditionalSpeed;
+		IsSprinting = false;
+	}
+}
+
 // Called when the game starts or when spawned
 void ABaseCharacter::BeginPlay()
 {
@@ -93,6 +111,8 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 		Input->BindAction(MoveInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Move);
 		Input->BindAction(LookInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Look);
 		Input->BindAction(JumpInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Jump);
+		Input->BindAction(SprintInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Sprint);
+		Input->BindAction(SprintInputAction, ETriggerEvent::Completed, this, &ABaseCharacter::UnSprint);
 	}
 }
 

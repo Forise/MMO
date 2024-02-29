@@ -32,6 +32,13 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
 	class UInputAction* JumpInputAction;
 
+	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
+	class UInputAction* SprintInputAction;
+
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float SprintAdditionalSpeed;
+	bool IsSprinting;
+
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Character")
 	class UMMO_CharacterHealthComponent* HealthComponent;
@@ -53,4 +60,6 @@ public:
 	void Move(const FInputActionValue& InputValue);
 	void Look(const FInputActionValue& InputValue);
 	void Jump();
+	void Sprint();
+	void UnSprint();
 };
