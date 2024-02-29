@@ -11,6 +11,7 @@
     <None Include="..\..\Source\mmo_projEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -47,11 +48,23 @@
     <ClCompile Include="..\..\Source\mmo_proj\Private\FirstClass.cpp">
       <Filter>Source\mmo_proj\Private</Filter>
     </ClCompile>
+    <Filter Include="Source\mmo_proj\Private\Components">
+      <UniqueIdentifier>{8F39F04E-A6C1-3236-B348-EEB7C8C3D82B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\mmo_proj\Private\Components\MMO_MovementComponent.cpp">
+      <Filter>Source\mmo_proj\Private\Components</Filter>
+    </ClCompile>
     <Filter Include="Source\mmo_proj\Public">
       <UniqueIdentifier>{EDE8C137-C69C-3244-8FE0-25DD8FB2FA8E}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\mmo_proj\Public\FirstClass.h">
       <Filter>Source\mmo_proj\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\mmo_proj\Public\Components">
+      <UniqueIdentifier>{2BA7E149-5FA8-32B2-BF59-3F3BAEAC350C}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\mmo_proj\Public\Components\MMO_MovementComponent.h">
+      <Filter>Source\mmo_proj\Public\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

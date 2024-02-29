@@ -5,7 +5,18 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"C:/Projects/Unreal/MMO/mmo_proj/Content/StarterContent/Audio/Collapse01.uasset"
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/StarterContent/Audio/Collapse01.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/ThirdPerson/Blueprints/BP_ThirdPersonGameMode.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/ThirdPerson/Maps/ThirdPersonMap.umap",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/ThirdPerson/Input/InputConfig.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/ThirdPerson/Input/IMC_Default.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/ThirdPerson/Input/Actions/IA_Look.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/BPs/BaseCharacter.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/BPs/1.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/BPs/MyMMO_BaseCharacter.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/F/1M/XMG7KPBLG46HDED2MQKLGD.uasset",
+				"C:/Projects/Unreal/MMO/mmo_proj/Content/BPs/BP_MMO_BaseCharacter.uasset"
 			]
 		}
 	]
