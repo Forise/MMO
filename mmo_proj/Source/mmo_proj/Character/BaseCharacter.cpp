@@ -10,6 +10,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "mmo_proj/Data/InputConfigData.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
@@ -57,6 +58,22 @@ void ABaseCharacter::Look(const FInputActionValue& InputValue)
 	}
 }
 
+void ABaseCharacter::ShowMouseCursor()
+{
+	if (!GetPC()->ShouldShowMouseCursor())
+	{
+		GetPC()->SetShowMouseCursor(true);
+	}
+}
+
+void ABaseCharacter::HideMouseCursor()
+{
+	if (GetPC()->ShouldShowMouseCursor())
+	{
+		GetPC()->SetShowMouseCursor(false);
+	}
+}
+
 void ABaseCharacter::Jump()
 {
 	Super::Jump();
@@ -86,6 +103,15 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 }
 
+APlayerController* ABaseCharacter::GetPC()
+{
+	if(_playerController == nullptr)
+	{
+		_playerController = Cast<APlayerController>(GetController());
+	}
+	return _playerController;
+}
+
 // Called every frame
 void ABaseCharacter::Tick(float DeltaTime)
 {
@@ -96,10 +122,10 @@ void ABaseCharacter::Tick(float DeltaTime)
 void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	// Get the player controller
-	APlayerController* PC = Cast<APlayerController>(GetController());
+	//PC = Cast<APlayerController>(GetController());
  
 	// Get the local player subsystem
-	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer());
+	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetPC()->GetLocalPlayer());
 	// Clear out existing mapping, and add our mapping
 	Subsystem->ClearAllMappings();
 	Subsystem->AddMappingContext(InputMapping, 0);
@@ -108,11 +134,13 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	if(UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-		Input->BindAction(MoveInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Move);
-		Input->BindAction(LookInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Look);
-		Input->BindAction(JumpInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Jump);
-		Input->BindAction(SprintInputAction, ETriggerEvent::Triggered, this, &ABaseCharacter::Sprint);
-		Input->BindAction(SprintInputAction, ETriggerEvent::Completed, this, &ABaseCharacter::UnSprint);
+		Input->BindAction(InputConfigData->InputRMD, ETriggerEvent::Completed, this, &ABaseCharacter::ShowMouseCursor);
+		Input->BindAction(InputConfigData->InputRMD, ETriggerEvent::Triggered, this, &ABaseCharacter::HideMouseCursor);
+		Input->BindAction(InputConfigData->InputMove, ETriggerEvent::Triggered, this, &ABaseCharacter::Move);
+		Input->BindAction(InputConfigData->InputLook, ETriggerEvent::Triggered, this, &ABaseCharacter::Look);
+		Input->BindAction(InputConfigData->InputJump, ETriggerEvent::Triggered, this, &ABaseCharacter::Jump);
+		Input->BindAction(InputConfigData->InputSprint, ETriggerEvent::Triggered, this, &ABaseCharacter::Sprint);
+		Input->BindAction(InputConfigData->InputSprint, ETriggerEvent::Completed, this, &ABaseCharacter::UnSprint);
 	}
 }
 

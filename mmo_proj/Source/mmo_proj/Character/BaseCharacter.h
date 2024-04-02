@@ -18,7 +18,8 @@ class MMO_PROJ_API ABaseCharacter : public ACharacter
 	
 	UPROPERTY(VisibleAnywhere, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* SpringArm;
-	
+private:
+	APlayerController* _playerController;
 protected:
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
 	class UInputMappingContext* InputMapping;
@@ -34,6 +35,12 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
 	class UInputAction* SprintInputAction;
+
+	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
+	class UInputAction* RMDInputAction;
+
+	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
+	class UInputConfigData* InputConfigData;
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float SprintAdditionalSpeed;
@@ -57,9 +64,12 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	APlayerController* GetPC();
 	void Move(const FInputActionValue& InputValue);
 	void Look(const FInputActionValue& InputValue);
 	void Jump();
 	void Sprint();
 	void UnSprint();
+	void ShowMouseCursor();
+	void HideMouseCursor();
 };
